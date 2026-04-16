@@ -1,6 +1,6 @@
 * {
   color: white;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Inter", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -22,6 +22,7 @@ button {
   --main-font: "Cinzel", "Times New Roman", Times, serif;
   --secondary-font: "Inter", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   --section-horizontal-padding: 50px;
+  --secondary-color: rgb(235, 235, 83);
 }
 
 body {
@@ -40,12 +41,19 @@ nav {
 }
 
 .hamburger {
-  background-color: lightgray;
   display: none;
+  border: none;
+  background-color: transparent;
+}
+
+.hamburger img {
+  width: 30px;
 }
 
 nav .links-container-wrapper .close-icon {
   display: none;
+  background-color: transparent;
+  border: none;
 }
 
 nav .links-container {
@@ -68,7 +76,7 @@ nav .call-schedule-btn {
   border: none;
   font-weight: 500;
   color: black;
-  background-color: rgb(235, 235, 83);
+  background-color: var(--secondary-color);
 }
 
 .main-section {
@@ -176,19 +184,28 @@ nav .call-schedule-btn {
 }
 
 .performances p:nth-child(2) {
-  grid-column: 1 / 2;
-  grid-row: 2 / 3;
-  font-family: var(--secondary-font);
-}
-
-.performances p:nth-child(3) {
   grid-column: 2 / 3;
   grid-row: 2 / 3;
 }
 
-.performances .meet-cell {
-  grid-row: 5/ 6;
+.performances p:nth-child(3) {
   grid-column: 1 / 2;
+  grid-row: 2 / 3;
+}
+
+.performances .meet-cell {
+  grid-column: 1 / 2;
+  grid-row: 5 / 6;
+}
+
+.performances .meet-cell button {
+  background-color: var(--secondary-color);
+  padding: 8px 10px;
+  border: none;
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 5px;
+  color: black;
 }
 
 .performances .performance-row-container {
@@ -276,6 +293,62 @@ nav .call-schedule-btn {
   line-height: 24px;
 }
 
+.faq-section {
+  padding: 50px var(--section-horizontal-padding);
+}
+
+.faq-section .title {
+  text-align: center;
+}
+
+.faq-section .question-response-row-container-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 25px;
+}
+
+.faq-section .question-response-row-container {
+  width: 70%;
+}
+
+.faq-section .question-response-row-container p {
+  font-size: 14px;
+  color: gray;
+}
+
+.faq-section .question-response-row-container p.question {
+  color: lightgray;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.faq-section .question-response-row {
+  margin-top: 10px;
+  border-bottom: 1px solid rgb(51, 50, 50);
+  padding-bottom: 8px;
+}
+
+.faq-section .question-line {
+  display: flex;
+  gap: 18px;
+}
+
+.faq-section .show-button {
+  background-color: var(--secondary-color);
+  margin-left: auto;
+  padding: 0 12px;
+  height: 30px;
+  color: black;
+  font-size: 14px;
+  font-weight: 500;
+  border: none;
+  border-radius: 4px;
+}
+
+.faq-section .response {
+  display: none;
+}
+
 .title-bold {
   font-size: 25px;
   font-weight: 400;
@@ -332,8 +405,12 @@ nav .call-schedule-btn {
 .post-card .author-box {
   display: flex;
   align-items: center;
-  margin-top: 8px;
-  gap: 6px;
+  margin-top: 15px;
+  gap: 12px;
+}
+
+.post-card .author-box img {
+  width: 30px;
 }
 
 .post-card .author-name {
@@ -410,6 +487,12 @@ footer p:nth-child(4) {
   }
 }
 
+@media screen and (max-width: 838px) {
+  nav h4 {
+    display: none;
+  }
+}
+
 @media screen and (max-width: 720px) {
   nav .hamburger {
     display: block;
@@ -436,7 +519,7 @@ footer p:nth-child(4) {
     display: block;
     position: absolute;
     right: 15px;
-    top: 8px;
+    top: 15px;
   }
 
   nav .links-container-wrapper .close-icon img {
@@ -445,7 +528,7 @@ footer p:nth-child(4) {
 
   nav .links-container {
     flex-direction: column;
-    margin-top: 40px;
+    margin-top: 50px;
     padding: 0 40px;
   }
 
@@ -472,12 +555,6 @@ footer p:nth-child(4) {
   }
 }
 
-@media screen and (max-width: 838px) {
-  nav h3 {
-    display: none;
-  }
-}
-
 @media screen and (max-width: 584px) {
   .main-section .presentation {
     width: 100%;
@@ -498,6 +575,8 @@ footer p:nth-child(4) {
   }
 
   .performances {
-    display: block;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
   }
 }
